@@ -1,0 +1,26 @@
+{
+    "name": "pwa_demo",
+    "version": "1.0.0",
+    "description": "Progressive Web Application Demos ============================= A PWD demo project the demonstrate all the features of the PWA supports, implementing a clinical care application.",
+    "main": "index.js",
+    "scripts": {
+        "start": "env PORT=8080 node app.js",
+        "test": "env PORT=8080 node app.js"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/andanhm/pwa_demo.git"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/andanhm/pwa_demo/issues"
+    },
+    "homepage": "https://github.com/andanhm/pwa_demo#readme",
+    "dependencies": {
+        "body-parser": "^1.17.2",
+        "debug": "^2.6.8",
+        "express": "^4.15.3"
+    }
+}

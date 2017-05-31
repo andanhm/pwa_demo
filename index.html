@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Health Care</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="manifest" href="./manifest.json">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="keywords" content="Health Care demo,  Web Design , PWD demo" />
+    <link href="css/bootstrap.css" type="text/css" rel="stylesheet" media="all">
+    <link rel="stylesheet" type="text/css" href="css/menu_style.css" />
+    <link href="css/style.css" type="text/css" rel="stylesheet" media="all">
+    <link href="css/font-awesome.css" rel="stylesheet" type="text/css" media="all" />
+    <link rel="apple-touch-icon" href="./images/icons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" href="./images/icons/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="./images/icons/favicon-16x16.png" sizes="16x16">
+</head>
+<style>
+    .col-centered {
+        float: none;
+        margin: 0 auto;
+    }
+</style>
+
+<body class="bg"><br/>
+    <div class="container text-center">
+        <div class="row">
+            <div class="col-lg-1 col-centered"> <img class="img-responsive" style="margin:0 auto;" src="./images/icons/icon-healthcare.png" /></div>
+        </div>
+    </div>
+    <div class="footer_bottom" style="background-color:#04d0fe;">
+        <div class="container">
+            <p style="font-size:20px"><b>Progressive Web Application demo project</b></p>
+            <div class="clearfix"> </div>
+        </div>
+    </div>
+</body>
+<script>
+    if ('serviceWorker' in navigator) {
+        console.log("Will the service worker register?");
+        navigator.serviceWorker.register('service-worker.js')
+            .then(function(reg) {
+                console.log("Yes, it did.");
+            }).catch(function(err) {
+                console.log("No it didn't. This happened: ", err)
+            });
+    }
+</script>
+
+</html>
