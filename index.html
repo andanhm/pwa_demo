@@ -1,8 +1,8 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" ng-app="PwaDemoApp">
 
 <head>
-    <title>Health Care</title>
+    <title ng-bind='title'> </title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="manifest" href="./manifest.json">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -15,36 +15,55 @@
     <link rel="icon" type="image/png" href="./images/icons/favicon-32x32.png" sizes="32x32">
     <link rel="icon" type="image/png" href="./images/icons/favicon-16x16.png" sizes="16x16">
 </head>
-<style>
-    .col-centered {
-        float: none;
-        margin: 0 auto;
-    }
-</style>
 
-<body class="bg"><br/>
-    <div class="container text-center">
-        <div class="row">
-            <div class="col-lg-1 col-centered"> <img class="img-responsive" style="margin:0 auto;" src="./images/icons/icon-healthcare.png" /></div>
-        </div>
+<body class="bg">
+    <div class="overlay overlay-simplegenie">
+        <button type="button" class="overlay-close"><i class="fa fa-times" aria-hidden="true"></i></button>
+        <nav>
+            <ul>
+                <li><a href="./home">Home</a></li>
+                <li><a href="./appointment">Appointment</a></li>
+                <li><a href="./doctors">Doctors</a></li>
+                <li><a href="./notifications">Notification</a></li>
+            </ul>
+        </nav>
     </div>
-    <div class="footer_bottom" style="background-color:#04d0fe;">
+    <section class="header">
+        <button id="trigger-overlay" type="button"><i class="fa fa-bars" aria-hidden="true"></i></button>
+        <div class="bottons-agileits">
+            <a class="page-scroll"><i class="fa fa-home" aria-hidden="true"></i>Add to home</a>.
+            <a class="page-scroll"><i class="fa fa-bell" aria-hidden="true"></i>Enable notification</a>
+        </div>
+        <div class="clearfix"> </div>
+    </section>
+    <div class="banner-silder">
+        <div class="healthcare_container">
+            <div class="banner-top">
+            </div>
+        </div>
+        <div class="clearfix"> </div>
+    </div>
+    <!--Includes templates based on the provided routes-->
+    <ng-view></ng-view>
+
+
+    <div class="footer_bottom">
         <div class="container">
-            <p style="font-size:20px"><b>Progressive Web Application demo project</b></p>
+            <p>Progressive Web Application demo project{{2+2}}</p>
             <div class="clearfix"> </div>
         </div>
     </div>
+    <script type="text/javascript" src="./js/angular.min.js"></script>
+    <script type="text/javascript" src="./js/angular-route.js"></script>
+    <script type="text/javascript" src="./js/modernizr-2.6.2.min.js"></script>
+    <script type="text/javascript" src="./js/classie.js"></script>
+    <script type="text/javascript" src="./js/menu.js"></script>
+    <script type="text/javascript" src="./js/app/app.init.js"></script>
+    <script type="text/javascript" src="./js/app/app.config.js"></script>
+    <script type="text/javascript" src="./js/app/app.route.js"></script>
+    <script type="text/javascript" src="./js/app/app.controller.js"></script>
+    <script type="text/javascript" src="./js/app/app.service.js"></script>
+    <script type="text/javascript" src="./js/addToHomeScreen.js"></script>
 </body>
-<script>
-    if ('serviceWorker' in navigator) {
-        console.log("Will the service worker register?");
-        navigator.serviceWorker.register('service-worker.js')
-            .then(function(reg) {
-                console.log("Yes, it did.");
-            }).catch(function(err) {
-                console.log("No it didn't. This happened: ", err)
-            });
-    }
-</script>
 
 </html>

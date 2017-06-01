@@ -1,7 +1,7 @@
 {
     "name": "HealthCare",
-    "short_name": "HealthCare",
-    "start_url": "./index.html?utm_source=homescreen",
+    "short_name": "Health Care",
+    "start_url": "./splash.html?utm_source=homescreen",
     "display": "standalone",
     "background_color": "#1E88E5",
     "description": "Progressive web application demo application",

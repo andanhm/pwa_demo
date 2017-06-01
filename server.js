@@ -4,12 +4,12 @@ process.env.VERSION = require('./package.json').version || 'undefined';
 if (process.env.NODE_ENV == "development" || process.env.NODE_ENV == "testing") {
     process.env.DEBUG = process.env.DEBUG || 'app,express:router,express:application,info,cs:*';
 }
-var debug = require('debug')('app');
-var express = require('express');
-var bodyParser = require('body-parser');
-var fs = require("fs");
-var https = require('https');
-var app = express();
+var debug = require('debug')('app'),
+    express = require('express'),
+    bodyParser = require('body-parser'),
+    fs = require("fs"),
+    path = require("path"),
+    app = express();
 
 app.set('env', process.env.NODE_ENV);
 app.set('port', process.env.PORT);
@@ -26,7 +26,7 @@ app.use(bodyParser.urlencoded({
 }));
 
 //To server static asset's in root dir
-app.use(express.static(__dirname));
+app.use(express.static(path.join(__dirname, '/')));
 
 //To allow cross origin request
 app.use(function(req, res, next) {
@@ -36,7 +36,7 @@ app.use(function(req, res, next) {
 });
 
 app.get('/', function(req, res) {
-    res.sendFile(require("path").join(__dirname, "main.html"));
+    res.sendFile(path.join(__dirname, "main.html"));
 });
 /// catch 404 and forward to error handler
 app.use(function(req, res, next) {
@@ -60,17 +60,13 @@ app.use(function(error, req, res, next) {
         trace: error.stack
     });
 });
-var httpsOptions = {
-    key: fs.readFileSync('./key.pem'),
-    cert: fs.readFileSync('./cert.pem')
-}
-var server = https.createServer(httpsOptions, app).listen(app.get("port"), () => {
+
+var server = app.listen(app.get("port"), function() {
     console.log('server running at ' + app.get("port"))
-})
+});
 
 process.on('exit', function(code) {
-    debug('Cleaning up ...');
-    debug('Exiting !!!');
+    debug('Cleaning up ...', 'Exiting !!!');
 });
 
 process.on('uncaughtException', function(error) {
